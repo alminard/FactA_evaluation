@@ -1,0 +1,33 @@
+FACTA SCORER - evaluation of factuality annotation
+==================================================
+
+The folder contains the materials for evaluating the factuality annotation as defined in the FactA task at EVALITA 2016.
+
+Contact: Anne-Lyse Minard (minard@fbk.eu)
+
+Usage:
+```
+        -h           : print this message
+        -g           : path to the folder containing gold files
+        -s           : path to the folder containing system files
+        -r           : path to the file in which the results will be printed
+        -t           : path to a folder in which temporary files will be saved
+```
+
+To perform the evaluation of factuality annotation starting from CAT format files:
+```
+sh run_evaluation.sh -g gold/ -s system/ -r result_file -t temp/
+```
+
+
+To convert CAT files into CoNLL column format.
+```
+python CAT_to_evaluation_formats.py folder_CAT/ folder_CoNLL/ FV_rules.txt
+```
+
+To perform factuality evaluation starting from CoNLL format files:
+```
+perl scorer_evaluation.pl gold_CoNLL/ sys_CoNLL/
+```
+
+The file rules_FV.txt contains the rules to compute the Factuality Value of an event using the values of the certainty, polarity and time attributes. 
