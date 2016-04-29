@@ -82,9 +82,9 @@ if [[ ! -d "$TEMP"/sys_CoNLL/ ]]; then
 fi
 
 
-/usr/local/bin/python2.7 CAT_to_evaluation_formats.py "$GOLD" "$TEMP"/gold_CoNLL/ rules_FV.txt
+python cat_to_conll_converter.py "$GOLD" "$TEMP"/gold_CoNLL/ rules_FV.txt
 
-/usr/local/bin/python2.7 CAT_to_evaluation_formats.py "$SYS" "$TEMP"/sys_CoNLL/ rules_FV.txt
+python cat_to_conll_converter.py "$SYS" "$TEMP"/sys_CoNLL/ rules_FV.txt
 
 if [[ $RES == '' ]]; then
     perl scorer_factuality.pl $TEMP/gold_CoNLL/ $TEMP/sys_CoNLL/ 
