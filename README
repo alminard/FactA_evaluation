@@ -20,14 +20,22 @@ sh run_evaluation.sh -g gold/ -s system/ -r result_file -t temp/
 ```
 
 
-To convert CAT files into CoNLL column format.
+The folder comtains the following scripts:
+
+- run_evaluation.sh: to perform the evaluation of factuality annotation starting from CAT format files.
+
+- cat_to_conll_converter.py: called by run_evaluation.sh to convert CAT-labelled format files into the CoNLL format.
+To do only the conversion from the CAT-labelled format to the CoNLL format:
 ```
 python cat_to_conll_converter.py folder_CAT/ folder_CoNLL/ FV_rules.txt
 ```
 
-To perform factuality evaluation starting from CoNLL format files:
+- scorer_factuality.pl: called by run_evaluation.sh to perform the evaluation of factuality starting from files in CoNLL format.
+To run only the scorer:
 ```
 perl scorer_factuality.pl gold_CoNLL/ sys_CoNLL/
 ```
 
-The file rules_FV.txt contains the rules used by the scorer to compute the Factuality Value of an event using the values of the certainty, polarity and time attributes. 
+- rules_FV.txt: contains the rules used by the scorer to compute the Factuality Value of an event using the values of the certainty, polarity and time attributes. 
+
+- this README.
